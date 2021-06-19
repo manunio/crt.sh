@@ -1,19 +1,18 @@
-crt_json_dump.py
-========
+# subdomain.py
+
 This program searches given url at crt.sh,
 extracts common_name(subdomains) from response and stores it
-<domain>-crtsh.txt.
+<domain>-crtsh.txt and sends to httprobe and stores its results in
+<domain>-urls.txt
 
 example:
-`
-python3 crt_json_dump.py shopifycloud shopifycloud.com
-`
+`python3 subdomain.py shopifycloud shopifycloud.com`
 
-crt.sh Python utility
-========
-This project aims at helping you to interact with [crt.sh](https://crt.sh) website. 
+# crt.sh Python utility
 
-Git clone the repo. 
+This project aims at helping you to interact with [crt.sh](https://crt.sh) website.
+
+Git clone the repo.
 
 ```bash
 git clone https://github.com/PaulSec/crt.sh
@@ -25,7 +24,7 @@ Install the dependencies.
 pip install -r requirements.txt
 ```
 
-Then, you can start interacting with crt.sh this way: 
+Then, you can start interacting with crt.sh this way:
 
 ```python
 from crtsh import crtshAPI
@@ -34,9 +33,9 @@ import json
 print(json.dumps(crtshAPI().search('uber.com')))
 ```
 
-The result is an array of dictionary items which looks like this: 
+The result is an array of dictionary items which looks like this:
 
-```json 
+```json
 [
   {
       "issuer_ca_id": 16418,
@@ -50,7 +49,6 @@ The result is an array of dictionary items which looks like this:
 ]
 ```
 
-License
-========
+# License
 
 This has been released under MIT License. For any question, feel free to contact me on Twitter [@PaulWebSec](https://twitter.com/@PaulWebSec).
