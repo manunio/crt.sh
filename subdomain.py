@@ -38,8 +38,12 @@ with open(f'{out}-crtsh.txt', 'w') as f1:
         f1.write(h + '\n')
 
 print(f"Sending hosts from {out}-crtsh.txt to httprobe command..")
-# it's not advisable to use shell=True, in this case as its a simple program we will use it.
-process = subprocess.Popen(f"cat {out}-crtsh.txt | httprobe > {out}-urls.txt", shell=True)
+# it's not advisable to use shell=True,
+# in this case as its a simple program we will use it.
+process = subprocess.Popen(
+        f"cat {out}-crtsh.txt | httprobe > {out}-urls.txt",
+        shell=True
+        )
 process.communicate()
 
 print("Done..")
